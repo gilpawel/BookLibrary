@@ -12,5 +12,12 @@ namespace BookLibrary.DataAccess.Entities
         [Key]
         public int BookGenreId { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<Book> Books { get; set; }
+
+        public DictBookGenre()
+        {
+            Books = new HashSet<Book>();
+        }
     }
 }

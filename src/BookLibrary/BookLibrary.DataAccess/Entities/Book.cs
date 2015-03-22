@@ -19,5 +19,13 @@ namespace BookLibrary.DataAccess.Entities
         public DateTime ModifiedDate { get; set; }
         public int Count { get; set; }
         public int BookGenreId { get; set; }
+
+        public virtual DictBookGenre BookGenre { get; set; }
+        public virtual ICollection<Borrow> Borrows { get; set; }
+
+        public Book()
+        {
+            Borrows = new HashSet<Borrow>();
+        }
     }
 }
