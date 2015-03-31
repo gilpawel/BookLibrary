@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Ninject;
+using BookLibrary.DataAccess.Concrete.Interface;
+using BookLibrary.DataAccess.Concrete;
 
 namespace BookLibrary.Infrastracture
 {
@@ -22,7 +24,8 @@ namespace BookLibrary.Infrastracture
         }
 
         private void AddBindings()
-        { 
+        {
+            this.ninjectKernel.Bind<IUnityOfWork>().To<UnityOfWork>().InSingletonScope();
         }
 
     }
